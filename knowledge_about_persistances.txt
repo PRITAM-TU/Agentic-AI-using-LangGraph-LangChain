@@ -55,3 +55,9 @@ Fault tolerance is the broader goal of combining checkpoints, replication, and p
 |---|---|---|
 | **Backward Recovery (Rollback)** | Reverts the system to a previous healthy checkpoint. | Relies on the saved persistent state being complete and uncorrupted. |
 | **Active Redundancy (Failover)** | Mirrors operations across multiple servers simultaneously. | Uses replicated persistence so a backup can take over instantly without dropping user requests. |
+
+
+
+stremming concept 
+1.status conetiner
+2.write in stremming formate in cahtbot
