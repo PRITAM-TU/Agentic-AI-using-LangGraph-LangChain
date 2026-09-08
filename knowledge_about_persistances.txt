@@ -1,0 +1,57 @@
+## Persistence in Computer Science
+
+Persistence refers to the characteristic of data that allows it to outlive the execution of the program that created it. Without persistence, data exists only in volatile memory (RAM) and is destroyed when the application closes or the system shuts down.
+
+The following sections describe four persistence and system-architecture concepts.
+
+## 1. Short-Term Memory Using Checkpoints
+
+In high-performance computing, AI, and distributed systems, checkpoints provide a form of managed short-term persistence.
+
+### Process
+
+The system periodically pauses to save its exact in-memory state—including variables, execution pointers, and registry states—to non-volatile storage.
+
+### Purpose
+
+Checkpoints act as a safety net. If a system crashes during a calculation, it can read the latest checkpoint and resume execution instead of starting from scratch. This minimizes data loss and wasted computing time.
+
+## 2. Time Travel (Temporal Databases)
+
+Time-travel persistence allows a database to query different versions of its state over time, rather than only the data that exists currently.
+
+### How It Works
+
+Traditional databases overwrite old data when an update occurs. A time-travel-enabled system records every modification with a timestamp or transaction log.
+
+### Benefits
+
+Users can query historical states, such as:
+
+> “What did this user's profile look like on January 1 at 12:00 PM?”
+
+This approach is widely used in financial ledgers, auditing, and storage frameworks such as Apache Iceberg and Git-based data tracking.
+
+## 3. GIRL (Graph Information Retrieval Language)
+
+In specialized database architecture, GIRL refers to frameworks optimized for graph information retrieval.
+
+### State and Persistence
+
+Unlike traditional tables, graph persistence stores data as:
+
+- **Nodes:** Entities
+- **Edges:** Relationships between entities
+
+### Why It Matters
+
+For complex systems—such as social networks, fraud-detection systems, and AI knowledge graphs—GIRL-based mechanisms can map and persist deeply nested structural connections without the slowdowns often associated with standard relational databases.
+
+## 4. Fault Tolerance
+
+Fault tolerance is the broader goal of combining checkpoints, replication, and persistence. It describes a system's ability to continue operating when one or more hardware or software components fail.
+
+| Strategy | How It Handles Failure | Role of Persistence |
+|---|---|---|
+| **Backward Recovery (Rollback)** | Reverts the system to a previous healthy checkpoint. | Relies on the saved persistent state being complete and uncorrupted. |
+| **Active Redundancy (Failover)** | Mirrors operations across multiple servers simultaneously. | Uses replicated persistence so a backup can take over instantly without dropping user requests. |
